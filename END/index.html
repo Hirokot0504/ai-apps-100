@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>エンドロールジェネレーター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="settings-panel">
+        <h2>📜 エンドロール設定</h2>
+        
+        <div class="setting-group">
+            <label>1. リストファイル (CSV) 選択:</label>
+            <input type="file" id="csvFile" accept=".csv">
+            <small>※ ExcelファイルをCSV形式で保存してください (A列:セクション, B列:役職, C列:氏名)</small>
+        </div>
+
+        <div class="setting-group">
+            <label for="titleInput">2. 表題（タイトル）:</label>
+            <input type="text" id="titleInput" value="制作協力">
+        </div>
+
+        <div class="setting-group">
+            <label for="fontSelect">3. 字体（フォント）:</label>
+            <select id="fontSelect">
+                <option value="'Meiryo', 'メイリオ', sans-serif" selected>メイリオ</option>
+                <option value="'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', sans-serif">ゴシック体 (標準)</option>
+                <option value="'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', serif">明朝体</option>
+                <option value="monospace">等幅フォント</option>
+            </select>
+        </div>
+
+        <div class="setting-group">
+            <label for="bgColor">4. 背景色:</label>
+            <input type="color" id="bgColor" value="#000000">
+        </div>
+        
+        <div class="setting-group">
+            <label for="finalMessageInput">最終メッセージ (任意):</label>
+            <textarea id="finalMessageInput" rows="3" placeholder="例: Thank You For Watching!"></textarea>
+        </div>
+
+        <div class="setting-group">
+            <label for="speedSlider">5. スクロール速度 (秒/画面):</label>
+            <input type="range" id="speedSlider" min="5" max="120" value="60" step="5">
+            <span id="speedValue">60秒</span>
+        </div>
+        
+        <button id="startButton">🎬 エンドロール開始</button>
+    </div>
+
+    <div id="credits-container">
+        <div id="credits-content"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</body>
+</html>
